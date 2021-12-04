@@ -31,7 +31,7 @@ pp score
 
 score = catch(:last) do
   draws.each do |draw|
-    boards.clone.each_with_index do |board, board_idx|
+    boards.clone.each do |board|
       board.each_with_index do |row, row_idx|
         row.each_with_index do |col, col_idx|
           board[row_idx][col_idx] = -1 if col == draw
