@@ -17,3 +17,18 @@ pp crabs
      .map { |c| (c - median_position).abs }
      .sum
 
+## part 2
+
+## so aparently I need triangular numbers
+## take this as a reference: https://www.mathsisfun.com/algebra/triangular-numbers.html
+## First one, I'm not confident in my approach, let's have a go
+
+def triangle(number)= number * (number+1) / 2
+triangles = Hash.new { |h, k| h[k] = triangle(k) } # caching might be nice
+
+pp crabs
+  .min
+  .upto(crabs.max).map { |value| crabs.map { |c| triangles[(c - value).abs] }.sum }
+  .min
+
+## oh, that worked, waddyaknow
