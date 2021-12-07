@@ -27,8 +27,8 @@ def triangle(number)= number * (number+1) / 2
 triangles = Hash.new { |h, k| h[k] = triangle(k) } # caching might be nice
 
 pp crabs
-  .min
-  .upto(crabs.max).map { |value| crabs.map { |c| triangles[(c - value).abs] }.sum }
-  .min
+    .min
+    .upto(crabs.max).map { |value| crabs.map { |c| triangles[(c - value).abs] }.sum }
+    .min
 
 ## oh, that worked, waddyaknow
