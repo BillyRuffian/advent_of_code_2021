@@ -17,12 +17,22 @@ class Day11
   
   def part1
     draw
-    100.times { tick }
+    100.times { tick; draw }
+  end
+  
+  def part2
+    counter = 1
+    loop do
+      break if octopii.values.all?(0)
+      puts counter
+      
+      tick
+      counter += 1
+    end
   end
   
   def tick
     octopii.each_pair { |k,v| octopii[k] += 1 }
-    draw
     flash
   end
   
@@ -45,7 +55,6 @@ class Day11
         
     @flashes += flashed.count
     
-    draw
   end
   
   def neighbours(location)
@@ -84,5 +93,5 @@ end
 
 
 d = Day11.new(values)
-d.part1
+d.part2
 
